@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Principal | GringasVerse</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Hoja de estilos -->
+  <link rel="stylesheet" href="/CSS/STYLO_GRINGASVERSE.css" />
+  <link rel="stylesheet" href="/CSS/carrito-header.css" />
+  <link rel="icon" href="/IMG/LogoGringasVerseNew.png">
+
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="PAGINA_PRINCIPAL_GRINGAS_VERSE.html#inicio">
+        <img src= "/IMG/LogoGringasVerseNew.png"/>
+      </a>
+      <nav class="nav">
+        <a href="PAGINA_PRINCIPAL_GRINGAS_VERSE.html" class="nav-link active-link">Principal</a>
+        <a href="menu.html"  class="nav-link">Menú</a>
+        <a href="sobre_nosotros.html" class="nav-link">Sobre nosotros</a>
+        <a href="contactos.html" class="nav-link">Contacto y ofertas</a>
+        <a href="Registro.html" class="nav-link">Registro</a>
+        <button id="cartBtn" class="cart-header-btn" type="button">
+          🛒 <span id="cartCount" class="cart-count">0</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+
+  <div id="cartModal" class="cart-overlay">
+    <div class="cart-modal">
+      <div class="cart-modal-header">
+        <h3>🛒 Carrito</h3>
+        <button id="closeCartBtn" class="close-btn" type="button">✕</button>
+      </div>
+      <div class="cart-modal-body">
+        <ul id="listaCarrito"></ul>
+      </div>
+      <div class="cart-modal-footer">
+        <div class="modal-total-bar">
+          <span class="modal-total-label">Total</span>
+          <span class="modal-total-value" id="totalCarrito">$0.00</span>
+        </div>
+        <button id="btnPagar" class="btn-ir-carrito" disabled type="button">🛍️ Ir al carrito</button>
+      </div>
+    </div>
+  </div>
+
+  <main id="inicio">
+
+    <!-- CARRUSEL -->
+    <section>
+      <div class="carousel">
+        <div class="carousel-track" id="carouselTrack">
+
+          <div class="slide">
+            <img src="/IMG/Nelson/gringacarrusel.jpg.jpeg" alt="Bienvenidos" class="slide-img" />
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+              <h2 class="slide-title">¡Bienvenidos a Gringas Verse!</h2>
+              <p class="slide-sub">El sabor que te enamora desde el primer bocado </p>
+              <a href="menu.html" class="slide-btn">Ver Menú</a>
+            </div>
+          </div>
+
+          <div class="slide">
+            <img src="/IMG/Nelson/grings.jpg.jpeg" alt="Gringas" class="slide-img" />
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+              <h2 class="slide-title">Gringas Irresistibles</h2>
+              <p class="slide-sub">Tortillas crujientes, carne jugosa y queso derretido 🧀</p>
+              <a href="menu.html" class="slide-btn">Ordenar ahora</a>
+            </div>
+          </div>
+
+          <div class="slide">
+            <img src="/IMG/Nelson/refrescos.jpg.jpeg" alt="Bebidas" class="slide-img" />
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+              <h2 class="slide-title">Bebidas Refrescantes</h2>
+              <p class="slide-sub">Jamaica y Tamarindo para el complemento perfecto 🥤</p>
+              <a href="menu.html" class="slide-btn">Ver Bebidas</a>
+            </div>
+          </div>
+
+        </div>
+
+        <button class="c-arrow prev" id="prevBtn">&#8249;</button>
+        <button class="c-arrow next" id="nextBtn">&#8250;</button>
+
+        <div class="c-dots" id="cDots">
+          <span class="dot active" data-index="0"></span>
+          <span class="dot"        data-index="1"></span>
+          <span class="dot"        data-index="2"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRINGAS -->
+    <section class="gringas-section" id="gringas">
+      <div class="sec-head">
+        <span class="sec-tag">🌮 Nuestras Gringas</span>
+        <h2 class="sec-title">Elige la tuya</h2>
+        <p class="sec-desc">Tortilla de harina, ingredientes frescos y queso derretido</p>
+      </div>
+      <div class="gringas-grid">
+
+        <div class="g-card">
+          <img src="/IMG/grngecarneee.jpg" alt="La Ternerita" class="g-img"
+              onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'g-img-placeholder',textContent:'🌮'}))" />
+          <div class="g-body">
+            <h3 class="g-name">La Ternerita</h3>
+            <p class="g-ing">Gringa de carne · Tortilla · Carne de cerdo · Queso · Salsas · Chimol o cebolla</p>
+            <div class="g-foot">
+              <span class="g-price">$2.50</span>
+              <button class="add-btn" onclick="addToCart('La Ternerita', 2.50)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="g-card">
+          <img src="/IMG/gringacarrusel.jpg" alt="La Chicken Little" class="g-img"
+              onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'g-img-placeholder',textContent:'🍗'}))" />
+          <div class="g-body">
+            <h3 class="g-name">La Chicken Little</h3>
+            <p class="g-ing">Gringa de pollo · Tortilla · Pollo · Queso · Salsas · Chimol o cebolla</p>
+            <div class="g-foot">
+              <span class="g-price">$2.50</span>
+              <button class="add-btn" onclick="addToCart('La Chicken Little', 2.50)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="g-card popular">
+          <span class="pop-badge">⭐ Popular</span>
+          <img src="/IMG/labipolar.jfif" alt="La Bipolar" class="g-img"
+               onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'g-img-placeholder',textContent:'🧀'}))" />
+          <div class="g-body">
+            <h3 class="g-name">La Bipolar</h3>
+            <p class="g-ing">Gringa mixta · Tortilla · Carne · Pollo · Queso · Salsas · Chimol o cebolla</p>
+            <div class="g-foot">
+              <span class="g-price">$3.25</span>
+              <button class="add-btn" onclick="addToCart('La Bipolar', 3.25)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="g-card">
+          <img src="/IMG/la ideal.jpg" class="g-img"
+              onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'g-img-placeholder',textContent:'✨'}))" />
+          <div class="g-body">
+            <h3 class="g-name">Tu Gringa Ideal</h3>
+            <p class="g-ing">Ingredientes a tu elección · Personaliza tu gringa perfecta</p>
+            <div class="g-foot">
+              <span class="g-price">$3.00</span>
+              <button class="add-btn" onclick="addToCart('Tu Gringa Ideal', 3.00)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BEBIDAS -->
+    <section class="bebidas-section" id="bebidas">
+      <div class="sec-head">
+        <span class="sec-tag">🥤 Bebidas</span>
+        <h2 class="sec-title">Para Acompañar</h2>
+        <p class="sec-desc">Frescas y deliciosas</p>
+      </div>
+      <div class="bebidas-grid">
+
+        <div class="b-card">
+          <img src="/IMG/jamaica.jfif" alt="Jamaica" class="b-img"
+               onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'b-img-placeholder',textContent:'🧃'}))" />
+          <div class="b-body">
+            <div><div class="b-name">Jamaica</div><div class="b-price">$0.45</div></div>
+            <button class="add-btn" onclick="addToCart('Jamaica', 0.45)">+ Agregar</button>
+          </div>
+        </div>
+
+        <div class="b-card">
+          <img src="/IMG/tamarindo.jpg" class="b-img"
+               onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'b-img-placeholder',textContent:'🥤'}))" />
+          <div class="b-body">
+            <div><div class="b-name">Tamarindo</div><div class="b-price">$0.45</div></div>
+            <button class="add-btn" onclick="addToCart('Tamarindo', 0.45)">+ Agregar</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <section class="contacto-section" id="contacto">
+    <div class="sec-head">
+      <span class="sec-tag">📍 Encuéntranos</span>
+      <h2 class="sec-title">Contacto</h2>
+    </div>
+    <div class="contacto-grid">
+      <div class="c-card"><span class="c-icon">📍</span><h4>Dirección</h4><p>Carretera troncal del norte km 5½, Instituto Nacional Ciudad Delgado, Habitat Confía</p></div>
+      <div class="c-card"><span class="c-icon">📞</span><h4>Teléfono</h4><p>+503 7313-6177</p></div>
+      <div class="c-card"><span class="c-icon">🕐</span><h4>Horario</h4><p>Feria de logros 2026, ¡único día exclusivo!</p></div>
+      <div class="c-card"><span class="c-icon">📱</span><h4>Redes Sociales</h4><p>@GringasVerse en todas las redes</p></div>
+    </div>
+  </section>
+
+  <!-- REGISTRO -->
+  <section class="registro-section" id="registro">
+    <div class="sec-head">
+      <span class="sec-tag">📝 Únete</span>
+      <h2 class="sec-title">Crea tu cuenta</h2>
+      <p class="sec-desc">Regístrate en menos de un minuto</p>
+    </div>
+    <div class="registro-box">
+      <form class="registro-form" id="registroForm" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="reg-nombre">Nombre completo</label>
+          <input class="form-input" type="text" id="reg-nombre" name="nombre" placeholder="Ej. María Pérez" autocomplete="name" required />
+          <span class="form-error" id="err-nombre"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reg-correo">Correo electrónico</label>
+          <input class="form-input" type="email" id="reg-correo" name="correo" placeholder="tucorreo@ejemplo.com" autocomplete="email" required />
+          <span class="form-error" id="err-correo"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reg-pass">Contraseña</label>
+          <div class="pass-wrap">
+            <input class="form-input" type="password" id="reg-pass" name="password" placeholder="Mínimo 6 caracteres" autocomplete="new-password" minlength="6" required />
+            <button type="button" class="pass-toggle" data-target="reg-pass" aria-label="Mostrar contraseña">👁️</button>
+          </div>
+          <span class="form-error" id="err-pass"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reg-pass2">Confirmar contraseña</label>
+          <div class="pass-wrap">
+            <input class="form-input" type="password" id="reg-pass2" name="password2" placeholder="Repite tu contraseña" autocomplete="new-password" minlength="6" required />
+            <button type="button" class="pass-toggle" data-target="reg-pass2" aria-label="Mostrar contraseña">👁️</button>
+          </div>
+          <span class="form-error" id="err-pass2"></span>
+        </div>
+
+        <button type="submit" class="order-btn">✅ Crear cuenta</button>
+        <p class="registro-alt">¿Prefieres la página completa? <a href="Registro.html">Ábrela aquí</a></p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <img src="/IMG/LogoGringasVerseNew.png" alt="Gringas Verse" class="footer-logo" />
+      <p class="footer-text">© 2026 Gringas Verse · Todos los derechos reservados</p>
+      <p class="footer-sub">¡No necesitas visa para probar las mejores gringas !</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <!-- javascrpt externo  -->
+  <script src="/JS/Carrusel.js"></script>
+
+  <!-- carrito unificado (debe ir DESPUÉS de JAVAscriptgringass.js) -->
+  <script src="/JS/carrito-header.js"></script>
+
+  <!-- script del formulario de Registro -->
+  <script>
+    (function () {
+      const form = document.getElementById('registroForm');
+      if (!form) return;
+
+      // Mostrar / ocultar contraseña
+      form.querySelectorAll('.pass-toggle').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const input = document.getElementById(btn.dataset.target);
+          const isPass = input.type === 'password';
+          input.type = isPass ? 'text' : 'password';
+          btn.textContent = isPass ? '🙈' : '👁️';
+        });
+      });
+
+      function setError(fieldId, message) {
+        const input = document.getElementById(fieldId);
+        const error = document.getElementById('err-' + fieldId.replace('reg-', ''));
+        if (message) {
+          input.classList.add('invalid');
+          if (error) error.textContent = message;
+        } else {
+          input.classList.remove('invalid');
+          if (error) error.textContent = '';
+        }
+        return !message;
+      }
+
+      function showToast(msg) {
+        const toast = document.getElementById('toast');
+        if (!toast) return;
+        toast.textContent = msg;
+        toast.classList.add('show');
+        setTimeout(function () { toast.classList.remove('show'); }, 2600);
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const nombre = document.getElementById('reg-nombre').value.trim();
+        const correo = document.getElementById('reg-correo').value.trim();
+        const pass = document.getElementById('reg-pass').value;
+        const pass2 = document.getElementById('reg-pass2').value;
+        const correoRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        let ok = true;
+        ok = setError('reg-nombre', nombre.length < 2 ? 'Escribe tu nombre completo' : '') && ok;
+        ok = setError('reg-correo', !correoRegex.test(correo) ? 'Ingresa un correo válido' : '') && ok;
+        ok = setError('reg-pass', pass.length < 6 ? 'Mínimo 6 caracteres' : '') && ok;
+        ok = setError('reg-pass2', pass2 !== pass ? 'Las contraseñas no coinciden' : '') && ok;
+
+        if (!ok) return;
+
+        showToast('🎉 ¡Cuenta creada con éxito, ' + nombre.split(' ')[0] + '!');
+        form.reset();
+      });
+    })();
+  </script>
+
+</body>
+</html>

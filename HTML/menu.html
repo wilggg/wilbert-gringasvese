@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menú | GringasVerse
+  </title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/CSS/menu.css" />
+  <link rel="stylesheet" href="/CSS/carrito-header.css" />
+  <link rel="icon" href="/IMG/GringasIMGBGR.png">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="PAGINA_PRINCIPAL_GRINGAS_VERSE.html" class="logo-text">🌮 Gringas Verse</a>
+      <nav class="nav">
+        <a href="PAGINA_PRINCIPAL_GRINGAS_VERSE.html" class="nav-link">Principal</a>
+        <a href="menu.html" class="nav-link active-link">Menú</a>
+        <a href="sobre_nosotros.html" class="nav-link">Sobre nosotros</a>
+        <a href="contactos.html" class="nav-link">Contacto y ofertas</a>
+        <a href="Registro.html" class="nav-link">Registro</a>
+        <button id="cartBtn" class="cart-header-btn" type="button">
+          🛒 <span id="cartCount" class="cart-count">0</span>
+        </button>
+      </nav>
+      <button class="burger" id="burger" type="button">&#9776;</button>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="PAGINA_PRINCIPAL_GRINGAS_VERSE.html" class="nav-link">Principal</a>
+      <a href="menu.html" class="nav-link active-link">Menú</a>
+      <a href="sobre_nosotros.html" class="nav-link">Sobre nosotros</a>
+      <a href="contactos.html" class="nav-link">Contacto y ofertas</a>
+      <a href="Registro.html" class="nav-link">Registro</a>
+      <button id="cartBtnMobile" class="nav-link cart-mobile-btn" type="button">
+        🛒 Carrito <span id="cartCountMobile" class="cart-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============================================================
+      CART MODAL (solo lista + botón ir al carrito)
+  ============================================================ -->
+<div id="cartModal" class="cart-overlay">
+    <div class="cart-modal">
+      <div class="cart-modal-header">
+        <h3>🛒 Carrito</h3>
+        <button id="closeCartBtn" class="close-btn" type="button">✕</button>
+      </div>
+      <div class="cart-modal-body">
+        <ul id="listaCarrito"></ul>
+      </div>
+      <div class="cart-modal-footer">
+        <div class="modal-total-bar">
+          <span class="modal-total-label">Total</span>
+          <span class="modal-total-value" id="totalCarrito">$0.00</span>
+        </div>
+        <button id="btnPagar" class="btn-ir-carrito" disabled type="button">🛍️ Ir al carrito</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO BANNER -->
+  <section class="hero" id="inicio">
+    <img src="/IMG/Isma/Banner.jpg" class="hero-img" alt="Gringas Verse">
+   <div class="hero-overlay">
+      <a href="#menu" class="hero-cta">Ver Menú 🌮</a>
+    </div>
+  </section>
+
+  <main>
+
+    <!-- GRINGAS -->
+    <section class="menu-section" id="menu">
+      <div class="sec-head">
+        <span class="sec-tag">🌮 Nuestras Gringas</span>
+        <h2 class="sec-title">Elige la tuya</h2>
+        <p class="sec-desc">Tortilla de harina, ingredientes frescos y queso derretido</p>
+      </div>
+
+      <div class="menu-grid">
+
+        <div class="m-card">
+          <div class="m-emoji">🥩</div>
+          <div class="m-body">
+            <h3 class="m-name">La Ternerita</h3>
+            <p class="m-ing">Tortilla · Carne de cerdo · Queso · Salsas · Chimol o cebolla</p>
+            <div class="m-foot">
+              <span class="m-price">$2.50</span>
+              <button class="add-btn" onclick="addToCart('La Ternerita', 2.50)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="m-card">
+          <div class="m-emoji">🍗</div>
+          <div class="m-body">
+            <h3 class="m-name">La Chicken Little</h3>
+            <p class="m-ing">Tortilla · Pollo · Queso · Salsas · Chimol o cebolla</p>
+            <div class="m-foot">
+              <span class="m-price">$2.50</span>
+              <button class="add-btn" onclick="addToCart('La Chicken Little', 2.50)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="m-card popular">
+          <span class="pop-badge">⭐ Popular</span>
+          <div class="m-emoji">🧀</div>
+          <div class="m-body">
+            <h3 class="m-name">La Bipolar</h3>
+            <p class="m-ing">Tortilla · Carne · Pollo · Queso · Salsas · Chimol o cebolla</p>
+            <div class="m-foot">
+              <span class="m-price">$3.25</span>
+              <button class="add-btn" onclick="addToCart('La Bipolar', 3.25)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="m-card">
+          <div class="m-emoji">✨</div>
+          <div class="m-body">
+            <h3 class="m-name">Tu Gringa Ideal</h3>
+            <p class="m-ing">Ingredientes a tu elección · Personaliza tu gringa perfecta · Ingredientes adicionales se cobran aparte</p>
+            <div class="m-foot">
+              <span class="m-price">$3.00</span>
+              <button class="add-btn" onclick="addToCart('Tu Gringa Ideal', 3.00)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BEBIDAS -->
+    <section class="bebidas-section" id="bebidas">
+      <div class="sec-head">
+        <span class="sec-tag">🥤 Bebidas</span>
+        <h2 class="sec-title">Para Acompañar</h2>
+        <p class="sec-desc">Naturales y refrescantes</p>
+      </div>
+
+      <div class="bebidas-grid">
+
+        <div class="b-card">
+          <div class="b-emoji">🌺</div>
+          <div class="b-body">
+            <div>
+              <div class="b-name">Jamaica</div>
+              <div class="b-desc">Bebida natural de flor de jamaica</div>
+              <div class="b-price">$0.45</div>
+            </div>
+            <button class="add-btn" onclick="addToCart('Jamaica', 0.45)">+ Agregar</button>
+          </div>
+        </div>
+
+        <div class="b-card">
+          <div class="b-emoji">🟤</div>
+          <div class="b-body">
+            <div>
+              <div class="b-name">Tamarindo</div>
+              <div class="b-desc">Bebida natural de tamarindo</div>
+              <div class="b-price">$0.45</div>
+            </div>
+            <button class="add-btn" onclick="addToCart('Tamarindo', 0.45)">+ Agregar</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- CONTACTO -->
+  <section class="contacto-section" id="contacto">
+    <div class="sec-head">
+      <span class="sec-tag">📍 Encuéntranos</span>
+      <h2 class="sec-title">Contacto</h2>
+    </div>
+    <div class="contacto-grid">
+      <div class="c-card"><span class="c-icon">📍</span><h4>Dirección</h4><p>Carretera troncal del norte km 5½, Instituto Nacional Ciudad Delgado, Habitat Confía</p></div>
+      <div class="c-card"><span class="c-icon">📞</span><h4>Teléfono</h4><p>+503 7313-6177</p></div>
+      <div class="c-card"><span class="c-icon">🕐</span><h4>Horario</h4><p>Feria de logros 2026, ¡único día exclusivo!</p></div>
+      <div class="c-card"><span class="c-icon">📱</span><h4>Redes Sociales</h4><p>@GringasVerse en todas las redes</p></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <img src="/IMG/isma/LOGO.jpg" style="width: 50px;">
+       <p class="footer-text">© 2026 Gringas Verse · Todos los derechos reservados</p>
+      <p class="footer-sub">¡No necesitas visa para probar las mejores gringas!</p>
+    </div>
+  </footer>
+
+  <script src="/JS/carrito-header.js"></script>
+
+</body>
+</html>

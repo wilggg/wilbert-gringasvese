@@ -1,0 +1,365 @@
+
+/* === VARIABLES: mismas que el sitio principal === */
+:root {
+  --yellow: #F5C027;
+  --pink:   #E83E72;
+  --cream:  #FFF7EC;
+  --dark:   #1A1110;
+  --white:  #FFFFFF;
+  --gray:   #f4f0ea;
+  --orange: #F07A2A;
+  --shadow: 0 6px 32px rgba(0,0,0,0.12);
+  --radius: 18px;
+  --T: 'Fredoka One', cursive;
+  --B: 'Nunito', sans-serif;
+}
+
+/* === RESET === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html  { scroll-behavior: smooth; }
+body  { font-family: var(--B); background: var(--cream); color: var(--dark); overflow-x: hidden; }
+img   { max-width: 100%; display: block; }
+a     { text-decoration: none; }
+
+/* =====================================================
+   HEADER 
+   ===================================================== */
+.header { position: sticky; top: 0; z-index: 100; background: var(--dark); box-shadow: 0 3px 20px rgba(0,0,0,.35); }
+.header-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 70px; display: flex; align-items: center; justify-content: space-between; }
+.logo-img { height: 56px; transition: transform .2s; }
+.logo-img:hover { transform: scale(1.06); }
+
+.nav { display: flex; align-items: center; gap: 4px; }
+.nav-link { font-family: var(--B); font-weight: 700; font-size: .88rem; color: var(--white); padding: 7px 15px; border-radius: 50px; transition: background .2s, transform .15s; text-transform: uppercase; }
+.nav-link:hover { background: var(--pink); transform: translateY(-2px); }
+.active-link { background: var(--yellow); color: var(--dark) !important; }
+.active-link:hover { background: #E0A800; transform: none; }
+
+.cart-btn { background: var(--yellow); color: var(--dark) !important; display: flex; align-items: center; gap: 5px; }
+.cart-btn:hover { background: #E0A800; }
+.cart-count { background: var(--pink); color: var(--white); font-size: .72rem; font-weight: 800; border-radius: 50%; width: 19px; height: 19px; display: flex; align-items: center; justify-content: center; }
+
+.burger { display: none; background: none; border: 2px solid var(--yellow); color: var(--yellow); font-size: 1.4rem; padding: 3px 11px; border-radius: 8px; cursor: pointer; }
+
+.mobile-nav { display: none; flex-direction: column; background: #2E1A0E; padding: 10px 22px 18px; gap: 2px; border-top: 2px solid var(--yellow); }
+.mobile-nav.open { display: flex; }
+.mobile-nav .nav-link { padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+
+/* =====================================================
+   ENCABEZADOS DE SECCIÓN 
+   ===================================================== */
+.sec-head  { text-align: center; margin-bottom: 44px; }
+.sec-tag   { display: inline-block; background: var(--yellow); color: var(--dark); font-weight: 800; font-size: .74rem; text-transform: uppercase; letter-spacing: .1em; padding: 5px 16px; border-radius: 50px; margin-bottom: 10px; }
+.sec-title { font-family: var(--T); font-size: clamp(1.7rem, 4vw, 2.7rem); color: var(--dark); margin-bottom: 8px; }
+.sec-desc  { color: #6b5a4e; font-size: .97rem; font-weight: 600; }
+
+/* =====================================================
+   BOTÓN SLIDE 
+   ===================================================== */
+.slide-btn { display: inline-block; background: var(--yellow); color: var(--dark); font-weight: 800; font-size: .92rem; padding: 11px 30px; border-radius: 50px; transition: transform .2s, background .2s; text-transform: uppercase; }
+.slide-btn:hover { background: var(--white); transform: translateY(-3px); }
+
+/* =====================================================
+   HERO - SOBRE NOSOTROS
+   ===================================================== */
+.hero-about {
+  position: relative;
+  height: 400px;
+  background: linear-gradient(135deg, #2E1A0E 0%, #1A1110 50%, #3D1A08 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Patrón decorativo de fondo */
+.hero-about::before {
+  content: "🌮🧀🌮🧀🌮🧀🌮🧀🌮🧀🌮🧀🌮🧀🌮🧀🌮🧀🌮🧀🌮🧀🌮🧀🌮🧀🌮🧀🌮🧀  🌮";
+  position: absolute;
+  inset: 0;
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 28px;
+  opacity: .06;
+  letter-spacing: 14px;
+  pointer-events: none;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.30);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 28px 36px;
+  max-width: 640px;
+}
+
+.hero-tag {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--dark);
+  font-weight: 800;
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  padding: 6px 18px;
+  border-radius: 50px;
+  margin-bottom: 18px;
+}
+
+.hero-title {
+  font-family: var(--T);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  color: var(--white);
+  margin-bottom: 14px;
+  text-shadow: 0 3px 14px rgba(0,0,0,.6);
+  line-height: 1.15;
+}
+
+.hero-sub {
+  font-size: clamp(.9rem, 2vw, 1.1rem);
+  color: rgba(255,255,255,.88);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* =====================================================
+   QUIÉNES SOMOS
+   ===================================================== */
+.quienes-section {
+  padding: 80px 24px;
+  background: var(--cream);
+}
+
+.quienes-grid {
+  max-width: 1060px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 52px;
+  align-items: center;
+}
+
+.quienes-img-wrap {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.quienes-img-placeholder {
+  width: 100%;
+  height: 360px;
+  background: linear-gradient(135deg, #fde68a, #fca5a5, #fde68a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 7rem;
+}
+
+.quienes-text { display: flex; flex-direction: column; gap: 16px; }
+
+.quienes-text .sec-tag { align-self: flex-start; }
+.quienes-text .sec-title { text-align: left; }
+
+.quienes-text p {
+  color: #5c4a3e;
+  font-size: .97rem;
+  line-height: 1.7;
+  font-weight: 600;
+}
+
+/* Badges de estadísticas */
+.badges-row {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.badge-item {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px 22px;
+  text-align: center;
+  border: 2px solid var(--yellow);
+  flex: 1;
+  min-width: 90px;
+}
+
+.badge-num {
+  display: block;
+  font-family: var(--T);
+  font-size: 1.7rem;
+  color: var(--pink);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.badge-label {
+  font-size: .75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #6b5a4e;
+  letter-spacing: .05em;
+}
+
+/* =====================================================
+   MISIÓN, VISIÓN Y VALORES
+   ===================================================== */
+.mvv-section {
+  padding: 80px 24px;
+  background: var(--gray);
+}
+
+.mvv-grid {
+  max-width: 1020px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+.mvv-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 36px 26px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  border: 2px solid transparent;
+  transition: transform .25s, border-color .25s;
+}
+
+.mvv-card:hover { transform: translateY(-7px); border-color: var(--yellow); }
+
+.mvv-card.mvv-featured {
+  background: var(--dark);
+  border-color: var(--yellow);
+  transform: scale(1.04);
+}
+
+.mvv-card.mvv-featured:hover { transform: scale(1.04) translateY(-5px); }
+
+.mvv-card.mvv-featured .mvv-title,
+.mvv-card.mvv-featured .mvv-text { color: var(--white); }
+
+.mvv-card.mvv-featured .mvv-text { color: rgba(255,255,255,.78); }
+
+.mvv-icon  { font-size: 2.8rem; display: block; margin-bottom: 14px; }
+.mvv-title { font-family: var(--T); font-size: 1.35rem; color: var(--dark); margin-bottom: 12px; }
+.mvv-text  { color: #6b5a4e; font-size: .92rem; line-height: 1.65; font-weight: 600; }
+
+/* =====================================================
+   ¿POR QUÉ ELEGIRNOS?
+   ===================================================== */
+.porque-section {
+  padding: 80px 24px;
+  background: var(--gray);
+}
+
+.porque-grid {
+  max-width: 1060px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 22px;
+}
+
+.pq-item {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 30px 24px;
+  box-shadow: var(--shadow);
+  border: 2px solid transparent;
+  transition: transform .25s, border-color .25s;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pq-item:hover { transform: translateY(-6px); border-color: var(--yellow); }
+
+.pq-icon  { font-size: 2.2rem; }
+.pq-title { font-family: var(--T); font-size: 1.1rem; color: var(--dark); }
+.pq-text  { color: #6b5a4e; font-size: .9rem; line-height: 1.6; font-weight: 600; }
+
+/* =====================================================
+   FRASE INSPIRACIONAL
+   ===================================================== */
+.frase-section {
+  padding: 90px 24px;
+  background: var(--dark);
+  text-align: center;
+}
+
+.frase-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.frase-emoji { font-size: 3.5rem; }
+
+.frase-quote {
+  font-family: var(--T);
+  font-size: clamp(1.5rem, 4vw, 2.4rem);
+  color: var(--yellow);
+  line-height: 1.3;
+  font-style: normal;
+  quotes: "\201C" "\201D";
+}
+
+.frase-quote::before { content: open-quote; }
+.frase-quote::after  { content: close-quote; }
+
+.frase-autor {
+  color: rgba(255,255,255,.6);
+  font-size: .92rem;
+  font-weight: 700;
+}
+
+/* =====================================================
+   FOOTER 
+   ===================================================== */
+.footer       { background: var(--dark); padding: 36px 24px; text-align: center; }
+.footer-inner { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.footer-logo  { height: 60px; filter: drop-shadow(0 2px 8px rgba(0,0,0,.5)); }
+.footer-text  { color: rgba(255,255,255,.72); font-weight: 700; font-size: .88rem; }
+.footer-sub   { color: rgba(255,255,255,.35); font-size: .8rem; }
+.imagenfooter{width: 100px;}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+@media (max-width: 768px) {
+  .nav    { display: none; }
+  .burger { display: block; }
+
+  .hero-about  { height: 300px; }
+  .hero-title  { font-size: 2rem; }
+
+  .quienes-grid { grid-template-columns: 1fr; gap: 32px; }
+  .quienes-img-placeholder { height: 240px; font-size: 5rem; }
+
+  .mvv-card.mvv-featured { transform: scale(1); }
+  .mvv-card.mvv-featured:hover { transform: translateY(-5px); }
+
+  .badges-row { gap: 12px; }
+}
+
+@media (max-width: 480px) {
+  .hero-about  { height: 260px; }
+  .hero-title  { font-size: 1.6rem; }
+  .frase-quote { font-size: 1.3rem; }
+}

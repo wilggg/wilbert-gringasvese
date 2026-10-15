@@ -1,0 +1,328 @@
+
+  <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto y Ofertas | Gringas Verse</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/CSS/contactos.css">
+<link rel="stylesheet" href="/CSS/carrito-header.css">
+<link rel="icon" href="/IMG/GringasIMGBGR.png">
+
+  
+</head>
+<body>
+
+  <!-- ══════════════════════════════
+       HEADER
+  ══════════════════════════════ -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="PAGINA_PRINCIPAL_GRINGAS_VERSE.html" class="logo-text">
+        🌮 Gringas Verse
+      </a>
+      <nav class="nav">
+        <a href="PAGINA_PRINCIPAL_GRINGAS_VERSE.html" class="nav-link">Principal</a>
+        <a href="menu.html" class="nav-link">Menú</a>
+        <a href="sobre_nosotros.html" class="nav-link">Sobre nosotros</a>
+        <a href="contactos.html" class="nav-link active-link">Contacto y ofertas</a>
+        <a href="Registro.html" class="nav-link">Registro</a>
+        <button id="cartBtn" class="cart-header-btn" type="button">
+          🛒 <span id="cartCount" class="cart-count">0</span>
+        </button>
+      </nav>
+      <button class="burger" id="burger" type="button">&#9776;</button>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="PAGINA_PRINCIPAL_GRINGAS_VERSE.html" class="nav-link">Principal</a>
+      <a href="menu.html" class="nav-link">Menú</a>
+      <a href="sobre_nosotros.html" class="nav-link">Sobre nosotros</a>
+      <a href="contactos.html" class="nav-link active-link">Contacto y ofertas</a>
+      <a href="Registro.html" class="nav-link">Registro</a>
+      <button id="cartBtnMobile" class="nav-link cart-mobile-btn" type="button">
+        🛒 Carrito <span id="cartCountMobile" class="cart-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============================================================
+      CART MODAL (solo lista + botón ir al carrito)
+  ============================================================ -->
+  <div id="cartModal" class="cart-overlay">
+    <div class="cart-modal">
+      <div class="cart-modal-header">
+        <h3>🛒 Carrito</h3>
+        <button id="closeCartBtn" class="close-btn" type="button">✕</button>
+      </div>
+      <div class="cart-modal-body">
+        <ul id="listaCarrito"></ul>
+      </div>
+      <div class="cart-modal-footer">
+        <div class="modal-total-bar">
+          <span class="modal-total-label">Total</span>
+          <span class="modal-total-value" id="totalCarrito">$0.00</span>
+        </div>
+        <button id="btnPagar" class="btn-ir-carrito" disabled type="button">🛍️ Ir al carrito</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════
+       CONTACTO
+  ══════════════════════════════ -->
+  <section class="contacto-section" id="contacto">
+    <div class="sec-head">
+      <span class="sec-tag">📍 Estamos para ti</span>
+      <h2 class="sec-title">Contáctanos</h2>
+      <p class="sec-desc">¿Tienes dudas, pedidos especiales o simplemente quieres decirnos que te encantamos? 🙌</p>
+    </div>
+
+    <!-- Formulario -->
+    <div class="contacto-form">
+      <label class="form-label" for="nombre">Nombre</label>
+      <input class="form-input" type="text" id="nombre" placeholder="Tu nombre completo" />
+
+      <label class="form-label" for="email">Correo electrónico</label>
+      <input class="form-input" type="email" id="email" placeholder="tucorreo@ejemplo.com" />
+
+      <label class="form-label" for="mensaje">Mensaje</label>
+      <textarea class="form-textarea" id="mensaje" placeholder="Escribe tu mensaje aquí…"></textarea>
+
+      <button class="btn-submit" onclick="enviarForm()">✉️ Enviar mensaje</button>
+    </div>
+
+    <!-- Info extra -->
+    <div class="contacto-info-row">
+
+      <div class="info-item">
+        <h3>📍 Ubicación</h3>
+        <p>
+          Carretera troncal del norte km 5½<br>
+          Instituto Nacional Ciudad Delgado<br>
+          Habitat Confía, San Salvador
+        </p>
+      </div>
+
+      <div class="info-item">
+        <h3>📞 Teléfono</h3>
+        <p>
+          <a href="tel:+50373136177" style="color:var(--naranja);text-decoration:none;font-weight:700;">+503 7313-6177</a><br>
+          <span style="font-size:.82rem;">Escríbenos por WhatsApp también 💬</span>
+        </p>
+      </div>
+
+      <div class="info-item">
+        <h3>🕐 Horario</h3>
+        <p>
+          Feria de Logros 2026<br>
+          ¡Único día exclusivo!<br>
+          <span style="font-size:.82rem;color:var(--naranja);font-weight:700;">Solo por tiempo limitado 🔥</span>
+        </p>
+      </div>
+
+      <div class="info-item">
+        <span class="siguenos-titulo">📱 Síguenos</span>
+        <p style="color:#777;font-size:.85rem;margin-bottom:10px;">Encuéntranos en nuestras redes:</p>
+        <div class="redes-row">
+
+          <a href="https://www.instagram.com/gringas_verse?igsh=MWxwZzlwd2U5d2k5cw%3D%3D&utm_source=qr"
+             class="red-btn" title="Instagram" target="_blank" rel="noopener">
+            <svg class="icon-soc" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                 style="color:var(--naranja)">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r=".5" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+
+          <a href="https://www.facebook.com/share/1EwrSchBC8/?mibextid=wwXIfr"
+             class="red-btn" title="Facebook" target="_blank" rel="noopener">
+            <svg class="icon-soc" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                 style="color:var(--naranja)">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+
+          <a href="https://wa.me/message/GM5EHFCLQHRJL1"
+             class="red-btn" title="WhatsApp" target="_blank" rel="noopener">
+            <svg class="icon-soc" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                 style="color:var(--naranja)">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+            </svg>
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ola de transición -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#1A1A1A"/>
+    </svg>
+  </div>
+
+  <!-- ══════════════════════════════
+       OFERTAS ESPECIALES
+  ══════════════════════════════ -->
+  <section class="ofertas-section" id="ofertas">
+    <div class="ofertas-inner">
+
+      <div class="sec-head">
+        <span class="sec-tag">🔥 Solo por hoy</span>
+        <h2 class="sec-title">Ofertas Especiales</h2>
+        <p class="sec-desc">Aprovecha estas promos exclusivas de la Feria de Logros 2026 ⏳</p>
+      </div>
+
+      <div class="ofertas-grid">
+
+        <div class="o-card">
+          <span class="o-badge">🔥 Oferta</span>
+          <div class="o-img-wrap">🌮</div>
+          <div class="o-body">
+            <div class="o-name">2x1 La Ternerita</div>
+            <div class="o-desc">Lleva dos gringas de carne al precio de una. Solo hoy.</div>
+            <div class="o-pricing">
+              <span class="o-price-new">$2.50</span>
+              <span class="o-price-old">$5.00</span>
+              <span class="o-descuento">-50%</span>
+            </div>
+            <button class="o-add-btn" onclick="addToCart('2x1 La Ternerita', 2.50)">+ Agregar al carrito</button>
+          </div>
+        </div>
+
+        <div class="o-card">
+          <span class="o-badge gold">⭐ Combo</span>
+          <div class="o-img-wrap">🍗</div>
+          <div class="o-body">
+            <div class="o-name">Combo Chicken</div>
+            <div class="o-desc">La Chicken Little + Jamaica o Tamarindo.</div>
+            <div class="o-pricing">
+              <span class="o-price-new">$2.75</span>
+              <span class="o-price-old">$2.95</span>
+              <span class="o-descuento">-7%</span>
+            </div>
+            <button class="o-add-btn" onclick="addToCart('Combo Chicken', 2.75)">+ Agregar al carrito</button>
+          </div>
+        </div>
+
+        <div class="o-card">
+          <span class="o-badge">💥 Popular</span>
+          <div class="o-img-wrap">🧀</div>
+          <div class="o-body">
+            <div class="o-name">Combo Bipolar</div>
+            <div class="o-desc">La Bipolar (mixta) + bebida a elección.</div>
+            <div class="o-pricing">
+              <span class="o-price-new">$3.50</span>
+              <span class="o-price-old">$3.70</span>
+              <span class="o-descuento">-5%</span>
+            </div>
+            <button class="o-add-btn" onclick="addToCart('Combo Bipolar', 3.50)">+ Agregar al carrito</button>
+          </div>
+        </div>
+
+        <div class="o-card">
+          <span class="o-badge gold">✨ Ideal</span>
+          <div class="o-img-wrap">✨</div>
+          <div class="o-body">
+            <div class="o-name">Gringa Ideal + Bebida</div>
+            <div class="o-desc">Personaliza tu gringa y agrega bebida por solo $0.25 más.</div>
+            <div class="o-pricing">
+              <span class="o-price-new">$3.25</span>
+              <span class="o-price-old">$3.45</span>
+              <span class="o-descuento">-6%</span>
+            </div>
+            <button class="o-add-btn" onclick="addToCart('Gringa Ideal + Bebida', 3.25)">+ Agregar al carrito</button>
+          </div>
+        </div>
+
+        <div class="o-card">
+          <span class="o-badge">🥤 Promo</span>
+          <div class="o-img-wrap">🥤</div>
+          <div class="o-body">
+            <div class="o-name">3 Bebidas por $1</div>
+            <div class="o-desc">Jamaica o Tamarindo, 3 unidades al mejor precio.</div>
+            <div class="o-pricing">
+              <span class="o-price-new">$1.00</span>
+              <span class="o-price-old">$1.35</span>
+              <span class="o-descuento">-26%</span>
+            </div>
+            <button class="o-add-btn" onclick="addToCart('3 Bebidas', 1.00)">+ Agregar al carrito</button>
+          </div>
+        </div>
+
+        <div class="o-card">
+          <span class="o-badge">🍔 Familiar</span>
+          <div class="o-img-wrap">🤝</div>
+          <div class="o-body">
+            <div class="o-name">Pack Familiar x4</div>
+            <div class="o-desc">4 gringas a tu elección + 4 bebidas incluidas.</div>
+            <div class="o-pricing">
+              <span class="o-price-new">$11.00</span>
+              <span class="o-price-old">$13.20</span>
+              <span class="o-descuento">-17%</span>
+            </div>
+            <button class="o-add-btn" onclick="addToCart('Pack Familiar x4', 11.00)">+ Agregar al carrito</button>
+          </div>
+        </div>
+
+        <div class="o-card">
+          <span class="o-badge gold">🎉 Especial</span>
+          <div class="o-img-wrap">🎉</div>
+          <div class="o-body">
+            <div class="o-name">Combo Feria 2026</div>
+            <div class="o-desc">La Bipolar + Ternerita + 2 bebidas. El combo estrella del día.</div>
+            <div class="o-pricing">
+              <span class="o-price-new">$6.25</span>
+              <span class="o-price-old">$7.20</span>
+              <span class="o-descuento">-13%</span>
+            </div>
+            <button class="o-add-btn" onclick="addToCart('Combo Feria 2026', 6.25)">+ Agregar al carrito</button>
+          </div>
+        </div>
+
+        <div class="o-card">
+          <span class="o-badge">🔮 Sorpresa</span>
+          <div class="o-img-wrap">🎲</div>
+          <div class="o-body">
+            <div class="o-name">Gringa Sorpresa</div>
+            <div class="o-desc">Déjanos elegir por ti. ¿Te atreves? Solo $2.00 🤩</div>
+            <div class="o-pricing">
+              <span class="o-price-new">$2.00</span>
+              <span class="o-price-old">$2.50</span>
+              <span class="o-descuento">-20%</span>
+            </div>
+            <button class="o-add-btn" onclick="addToCart('Gringa Sorpresa', 2.00)">+ Agregar al carrito</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       FOOTER
+  ══════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <img src="c:\Users\MINEDUCYT\OneDrive\Documentos\Desktop\gringas_verse\html\img\LOGO.jpeg"
+           alt="Gringas Verse" class="footer-logo"
+           onerror="this.style.display='none'; document.getElementById('footerLogoText').style.display='block'" />
+      <span class="footer-logo-text" id="footerLogoText" style="display:none;">🌮 Gringas Verse</span>
+      <p class="footer-text">© 2026 Gringas Verse · Todos los derechos reservados</p>
+      <p class="footer-sub">¡No necesitas visa para probar las mejores gringas!</p>
+    </div>
+  </footer>
+
+  <!-- Toast del formulario de contacto -->
+  <div id="toast"></div>
+<script src="/JS/contactos.js"></script>
+<script src="/JS/carrito-header.js"></script>
+</body>
+</html>

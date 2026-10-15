@@ -1,0 +1,160 @@
+/* ============================================================
+   GRINGAS VERSE — carrito-header.css
+   Módulo COMPARTIDO: header, nav, burger/mobile-nav, botón de
+   carrito y modal del carrito. Es autocontenido (no depende de
+   variables --color definidas en cada página) para que se vea
+   igual en todo el sitio sin importar el CSS propio de cada
+   página.
+
+   Cargar este archivo AL FINAL, después del CSS propio de la
+   página, para que sus reglas tengan la última palabra.
+============================================================ */
+
+/* ---- Header ---- */
+.header {
+  position: sticky; top: 0; z-index: 100;
+  background: #1A1110;
+  box-shadow: 0 3px 20px rgba(0,0,0,.35);
+}
+.header-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+}
+.header-inner a img,
+.logo-img { height: 56px; width: auto; transition: transform .2s; display:block; }
+.header-inner a:hover img { transform: scale(1.06); }
+.logo, .logo-text {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.55rem; color: #F5C027; white-space: nowrap; text-decoration: none;
+}
+
+/* ---- Nav ---- */
+.nav { display: flex; align-items: center; gap: 4px; margin-left: auto; flex-wrap: wrap; }
+.nav-link {
+  background: none; border: none; cursor: pointer; text-decoration: none;
+  font-family: 'Nunito', sans-serif; font-weight: 700; font-size: .85rem;
+  color: #fff; padding: 7px 14px; border-radius: 50px;
+  transition: background .2s, transform .15s; text-transform: uppercase;
+  display: inline-block;
+}
+.nav-link:hover { background: #E83E72; transform: translateY(-2px); }
+.nav-link.active-link { background: #F5C027; color: #1A1110 !important; }
+.nav-link.active-link:hover { background: #E0A800; transform: none; }
+
+/* ---- Burger + mobile nav ---- */
+.burger {
+  display: none; background: none; border: 2px solid #F5C027;
+  color: #F5C027; font-size: 1.4rem; cursor: pointer;
+  padding: 3px 11px; border-radius: 8px; margin-left: 12px;
+}
+.mobile-nav {
+  display: none; flex-direction: column;
+  background: #2E1A0E; padding: 10px 22px 18px;
+  gap: 2px; border-top: 2px solid #F5C027;
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav .nav-link {
+  display: block; width: 100%; text-align: left;
+  padding: 9px 0; color: #fff; font-size: .95rem;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  border-radius: 0; text-transform: none; background: none;
+}
+.mobile-nav .nav-link:last-child { border-bottom: none; }
+.mobile-nav .nav-link.active-link { background: none; color: #F5C027 !important; }
+
+@media (max-width: 860px) {
+  .nav { display: none; }
+  .burger { display: block; }
+}
+
+/* ---- Botón carrito (header, desktop) ---- */
+.cart-header-btn {
+  background: #F5C027; color: #1A1110; border: none; cursor: pointer;
+  padding: 7px 15px; border-radius: 50px;
+  font-family: 'Nunito', sans-serif; font-weight: 800; font-size: .88rem;
+  display: flex; align-items: center; gap: 5px;
+  transition: background .2s, transform .15s; white-space: nowrap;
+}
+.cart-header-btn:hover { background: #E0A800; transform: translateY(-2px); }
+
+/* ---- Botón carrito (mobile, dentro del menú) ---- */
+.cart-mobile-btn {
+  background: none; border: none; cursor: pointer;
+  display: flex; align-items: center; gap: 8px; width: 100%;
+  font-family: 'Nunito', sans-serif;
+}
+
+.cart-count {
+  background: #E83E72; color: #fff;
+  font-size: .72rem; font-weight: 800;
+  border-radius: 50%; width: 19px; height: 19px;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: transform .15s;
+}
+.cart-count.bump { transform: scale(1.5); }
+
+/* ---- Modal del carrito ---- */
+.cart-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,.5); z-index: 200;
+  align-items: flex-start; justify-content: flex-end;
+  padding: 1rem; backdrop-filter: blur(2px);
+}
+.cart-overlay.open { display: flex; }
+.cart-modal {
+  background: #fff; border-radius: 18px;
+  width: 100%; max-width: 360px; max-height: calc(100vh - 2rem);
+  overflow-y: auto; box-shadow: 0 12px 56px rgba(0,0,0,.32);
+  display: flex; flex-direction: column;
+  animation: gvSlideInRight .25s ease;
+}
+@keyframes gvSlideInRight { from { transform:translateX(40px); opacity:0; } to { transform:translateX(0); opacity:1; } }
+@media (max-width:500px) {
+  .cart-overlay { padding:0; align-items:flex-end; }
+  .cart-modal   { border-radius:18px 18px 0 0; max-height:82vh; max-width:100%; }
+}
+.cart-modal-header {
+  padding: 1.1rem 1.4rem; display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 2px solid #EDE8E0; position: sticky; top: 0; background: #fff; z-index: 1;
+}
+.cart-modal-header h3 { font-family: 'Fredoka One', cursive; font-size: 1.2rem; color: #1A1110; }
+.close-btn {
+  background: #f2f2f2; border: none; width: 32px; height: 32px; border-radius: 50%;
+  font-size: .88rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  color: #1A1110; transition: background .18s;
+}
+.close-btn:hover { background: #ddd; }
+.cart-modal-body  { flex: 1; padding: 0 1.4rem; }
+#listaCarrito { list-style: none; }
+.modal-item-simple {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .8rem 0; border-bottom: 1px solid #EDE8E0; gap: .5rem;
+}
+.modal-item-nombre  { font-weight: 800; font-size: .88rem; color: #1A1110; }
+.modal-item-detalle { font-size: .76rem; color: #aaa; font-weight: 600; margin-top: .1rem; }
+.modal-item-sub     { font-family: 'Fredoka One', cursive; font-size: 1rem; color: #E83E72; white-space: nowrap; }
+.modal-vacio        { text-align: center; color: #ccc; padding: 2.25rem 0; font-size: .9rem; font-weight: 700; }
+.cart-modal-footer  { padding: 1rem 1.4rem 1.3rem; border-top: 2px solid #EDE8E0; background: #FAFAF8; }
+.modal-total-bar    { display: flex; align-items: center; justify-content: space-between; margin-bottom: .75rem; }
+.modal-total-label  { font-size: .88rem; font-weight: 700; color: #1A1110; }
+.modal-total-value  { font-family: 'Fredoka One', cursive; font-size: 1.3rem; color: #E83E72; }
+.btn-ir-carrito {
+  width: 100%; background: #E83E72; color: #fff; border: none;
+  border-radius: 10px; padding: .7rem;
+  font-family: 'Nunito', sans-serif; font-weight: 800; font-size: .95rem;
+  cursor: pointer; transition: background .18s;
+}
+.btn-ir-carrito:hover:not(:disabled) { background: #C22F5C; }
+.btn-ir-carrito:disabled { opacity: .32; cursor: default; }
+
+/* ---- Toast: "producto añadido ✓" ---- */
+.toast-notificacion {
+  position: fixed; bottom: 24px; left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: #1A1110; color: #F5C027; font-family: 'Nunito', sans-serif;
+  font-weight: 800; padding: 12px 28px; border-radius: 50px;
+  border: 2px solid #F5C027; box-shadow: 0 8px 28px rgba(0,0,0,.3);
+  opacity: 0; transition: transform .4s cubic-bezier(.34,1.56,.64,1), opacity .3s;
+  z-index: 9999; white-space: nowrap;
+}
+.toast-notificacion.visible { transform: translateX(-50%) translateY(0); opacity: 1; }

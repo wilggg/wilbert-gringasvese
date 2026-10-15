@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gringas Verse 🌮</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/CSS/Carrito.css">
+  <link rel="icon" href="/IMG/GringasIMGBGR.png"> 
+</head>
+<body>
+
+<!-- ============================================================
+    HEADER
+============================================================ -->
+<header class="header">
+  <div class="header-inner">
+    <span class="logo" onclick="navegarMenu('#inicio')">🌮 Gringas Verse</span>
+    <nav class="nav">
+      <a href="PAGINA_PRINCIPAL_GRINGAS_VERSE.html" class="nav-link">Principal</a>
+      <a href="menu.html" class="nav-link">Menú</a>
+      <a href="sobre_nosotros.html" class="nav-link">Sobre nosotros</a>
+      <a href="contactos.html" class="nav-link">Contacto y ofertas</a>
+      <a href="Registro.html" class="nav-link">Registro</a>
+
+
+      <button id="cartBtn" class="cart-header-btn">
+        🛒 <span id="cartCount" class="cart-count">0</span>
+      </button>
+    </nav>
+  </div>  
+</header>
+
+<!-- ============================================================
+    CART MODAL (solo lista + botón Pagar)
+============================================================ -->
+<div id="cartModal" class="cart-overlay">
+  <div class="cart-modal">
+    <div class="cart-modal-header">
+      <h3>🛒 Carrito</h3>
+      <button id="closeCartBtn" class="close-btn">✕</button>
+    </div>
+    <div class="cart-modal-body">
+      <ul id="listaCarrito"></ul>
+    </div>
+    <div class="cart-modal-footer">
+      <div class="modal-total-bar">
+        <span class="modal-total-label">Total</span>
+        <span class="modal-total-value" id="totalCarrito">$0.00</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- ============================================================
+    CARRITO
+============================================================ -->
+<div id="viewCarrito">
+
+  <!-- VACÍO -->
+  <div id="carritoVacioState">
+    <div class="vacio-emoji">🛒</div>
+    <h2 class="vacio-titulo">Oops, tu carrito está vacío</h2>
+    <p class="vacio-sub">¡Parece que todavía no has elegido nada!</p>
+    <p class="vacio-hint">Usá los botones de arriba para agregar productos 👆</p>
+  </div>
+
+  <div id="carritoItemsState">
+    <div class="carrito-page-content"> 
+
+      <div class="carrito-items-grid" id="carritoGrid"></div>
+    <!-- JS inserta el contenido aca ! -->
+
+
+    <!-- JS inserta hasta aca ! -->
+      <div class="carrito-resumen">
+        <div>
+          <span class="resumen-label">Total del pedido</span>
+          <span class="resumen-total" id="carritoTotalPage">$0.00</span>
+        </div>
+        <button class="btn-proceder-pago" id="btnProcederPago">💳 Proceder al pago</button>
+      </div>
+
+      <!-- Formulario de checkout -->
+      <div class="carrito-checkout" id="checkoutPage">
+        <h3 class="checkout-h">📋 Datos para tu factura</h3>
+        <div class="checkout-inputs">
+          <div class="input-grupo">
+            <label>👤 Tu nombre completo</label>
+            <input type="text"  id="checkoutNombre" placeholder="Ej: María García" autocomplete="name" />
+          </div>
+          <div class="input-grupo">
+            <label>📧 Correo electrónico</label>
+            <input type="email" id="checkoutEmail"  placeholder="tucorreo@gmail.com" autocomplete="email" />
+          </div>
+        </div>
+        <button class="btn-finalizar" id="btnFinalizar">✅ Confirmar </button>
+        <p class="mensaje-envio" id="mensajeEnvio"></p>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- ============================================================
+    FOOTER
+============================================================ -->
+<footer class="footer">
+  <span class="footer-brand">🌮 Gringas Verse</span>
+  <p class="footer-text">© 2026 Gringas Verse · Todos los derechos reservados</p>
+  <p class="footer-sub">¡No necesitas visa para probar las mejores gringas!</p>
+</footer>
+
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="/JS/Carrito.js"></script>
+</body>
+</html>

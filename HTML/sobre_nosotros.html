@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre Nosotros | GringasVerse</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Hoja de estilos externa -->
+  <link rel="stylesheet" href="/CSS/sobre_nosotros.css" />
+  <link rel="stylesheet" href="/CSS/carrito-header.css" />
+  <link rel="icon" href="/IMG/GringasIMGBGR.png">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="PAGINA_PRINCIPAL_GRINGAS_VERSE.html">
+        <img src="c:\Users\Usuario\Pictures\gringas.jpg" alt="" class="logo-img" />
+      </a>
+      <nav class="nav">
+        <a href="PAGINA_PRINCIPAL_GRINGAS_VERSE.html" class="nav-link">Principal</a>
+        <a href="menu.html"  class="nav-link">Menú</a>
+        <a href="sobre_nosotros.html" class="nav-link active-link">Sobre nosotros</a>
+        <a href="contactos.html" class="nav-link">Contacto y ofertas</a>
+        <a href="Registro.html" class="nav-link">Registro</a>
+        <button id="cartBtn" class="cart-header-btn" type="button">
+          🛒 <span id="cartCount" class="cart-count">0</span>
+        </button>
+      </nav>
+      <button class="burger" id="burger">&#9776;</button>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="PAGINA_PRINCIPAL_GRINGAS_VERSE.html" class="nav-link">Principal</a>
+      <a href="menu.html"  class="nav-link">Menú</a>
+      <a href="sobre_nosotros.html" class="nav-link active-link">Sobre nosotros</a>
+      <a href="contactos.html" class="nav-link">Contacto y ofertas</a>
+      <a href="Registro.html" class="nav-link">Registro</a>
+      <button id="cartBtnMobile" class="nav-link cart-mobile-btn" type="button">
+        🛒 Carrito <span id="cartCountMobile" class="cart-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============================================================
+      CART MODAL (solo lista + botón ir al carrito)
+  ============================================================ -->
+  <div id="cartModal" class="cart-overlay">
+    <div class="cart-modal">
+      <div class="cart-modal-header">
+        <h3>🛒 Carrito</h3>
+        <button id="closeCartBtn" class="close-btn" type="button">✕</button>
+      </div>
+      <div class="cart-modal-body">
+        <ul id="listaCarrito"></ul>
+      </div>
+      <div class="cart-modal-footer">
+        <div class="modal-total-bar">
+          <span class="modal-total-label">Total</span>
+          <span class="modal-total-value" id="totalCarrito">$0.00</span>
+        </div>
+        <button id="btnPagar" class="btn-ir-carrito" disabled type="button">🛍️ Ir al carrito</button>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- HERO DE LA PÁGINA -->
+    <section class="hero-about">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <span class="hero-tag">🌮 Nuestra Historia</span>
+        <h1 class="hero-title">Somos Gringas Verse</h1>
+        <p class="hero-sub">Nacimos del sabor, la pasión y las ganas de compartir algo diferente</p>
+      </div>
+    </section>
+
+    <!-- QUIÉNES SOMOS -->
+    <section class="quienes-section">
+      <div class="quienes-grid">
+        <div class="quienes-img-wrap">
+        <img src="c:\Users\Usuario\Pictures\y.jpg" alt="">
+        </div>
+        <div class="quienes-text">
+          <span class="sec-tag">👋 Quiénes Somos</span>
+          <h2 class="sec-title">Más que una gringa, una experiencia</h2>
+          <p>Gringas Verse nació de una idea simple: crear una gringa tan buena que no necesitas visa para disfrutarla. Somos un equipo joven, apasionado por la cocina callejera y comprometido con la calidad en cada tortilla, cada trozo de carne y cada gota de salsa.</p>
+          <p></p>
+          <div class="badges-row">
+            <div class="badge-item">
+              <span class="badge-num">100%</span>
+              <span class="badge-label">Hecho a mano</span>
+            </div>
+            <div class="badge-item">
+              <span class="badge-num">4</span>
+              <span class="badge-label">Sabores únicos</span>
+            </div>
+            <div class="badge-item">
+              <span class="badge-num">❤️</span>
+              <span class="badge-label">Con amor</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISIÓN, VISIÓN, VALORES -->
+    <section class="mvv-section">
+      <div class="sec-head">
+        <span class="sec-tag">💡 Lo que nos mueve</span>
+        <h2 class="sec-title">Misión, Visión y Valores</h2>
+        <p class="sec-desc">Los pilares que guían cada gringa que preparamos</p>
+      </div>
+      <div class="mvv-grid">
+
+        <div class="mvv-card">
+          <span class="mvv-icon">🎯</span>
+          <h3 class="mvv-title">Misión</h3>
+          <p class="mvv-text">Ofrecer gringas de calidad premium con ingredientes frescos, precios justos y un servicio que te haga sentir en casa. Queremos que cada bocado sea una experiencia que recuerdes.</p>
+        </div>
+
+        <div class="mvv-card mvv-featured">
+          <span class="mvv-icon">🚀</span>
+          <h3 class="mvv-title">Visión</h3>
+          <p class="mvv-text">convertirnos en la mejor experiencia de todas que cada vocado sea algo inolvidable, y que sientas esa calides como cuando comer comida casera</p>
+        </div>
+
+        <div class="mvv-card">
+          <span class="mvv-icon">✨</span>
+          <h3 class="mvv-title">Valores</h3>
+          <p class="mvv-text">Calidad sin compromisos, honestidad en cada ingrediente, creatividad en cada receta y calidez humana en cada interacción con nuestros clientes.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- POR QUÉ ELEGIRNOS -->
+    <section class="porque-section">
+      <div class="sec-head">
+        <span class="sec-tag">🏆 ¿Por qué nosotros?</span>
+        <h2 class="sec-title">Razones para elegir Gringas Verse</h2>
+        <p class="sec-desc">No somos los únicos, pero sí los mejores</p>
+      </div>
+      <div class="porque-grid">
+
+        <div class="pq-item">
+          <span class="pq-icon">🥩</span>
+          <h4 class="pq-title">Ingredientes Frescos</h4>
+          <p class="pq-text">Seleccionamos la carne, el pollo y los vegetales cada día para garantizar la mejor calidad en tu plato.</p>
+        </div>
+
+        <div class="pq-item">
+          <span class="pq-icon">🧀</span>
+          <h4 class="pq-title">Queso Derretido Perfecto</h4>
+          <p class="pq-text">Usamos la mezcla exacta de quesos para lograr ese derretido dorado que te hace suspirar.</p>
+        </div>
+
+        <div class="pq-item">
+          <span class="pq-icon">💰</span>
+          <h4 class="pq-title">Precios Justos</h4>
+          <p class="pq-text">Calidad premium a precios que no te hacen llorar. Desde $2.75 puedes llevarte una gringa increíble.</p>
+        </div>
+
+        <div class="pq-item">
+          <span class="pq-icon">⚡</span>
+          <h4 class="pq-title">Rapidez y Dedicación</h4>
+          <p class="pq-text">Preparamos cada gringa con rapidez sin sacrificar el cuidado y el amor que ponemos en cada una.</p>
+        </div>
+
+        <div class="pq-item">
+          <span class="pq-icon">🤝</span>
+          <h4 class="pq-title">Trato Amigable</h4>
+          <p class="pq-text">Más que clientes, son parte de la familia Gringas Verse. Aquí siempre te recibimos con una sonrisa.</p>
+        </div>
+
+        <div class="pq-item">
+          <span class="pq-icon">🎨</span>
+          <h4 class="pq-title">Tu Gringa Ideal</h4>
+          <p class="pq-text">¿Quieres personalizarla? Nosotros la armamos a tu gusto. Porque la gringa perfecta es la que tú diseñas.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FRASE INSPIRACIONAL -->
+    <section class="frase-section">
+      <div class="frase-inner">
+
+        <blockquote class="frase-quote">
+          "No necesitas visa para probar las mejores gringas"
+        </blockquote>
+        <p class="frase-autor">— Gringas Verse, desde El Salvador con sabor 🇸🇻</p>
+        <a href="menu.html#menu" class="slide-btn">Ver nuestro Menú</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+    <img class="imagenfooter" src="c:\Users\Usuario\Pictures\gringas.jpg" alt="">
+      <p class="footer-text">© 2026 Gringas Verse</p>
+      <p class="footer-sub">¡No necesitas visa para probar las mejores gringas!</p>
+    </div>
+  </footer>
+
+  <!-- carrito unificado (incluye también el manejo del burger) -->
+  <script src="/JS/carrito-header.js"></script>
+
+</body>
+</html>
