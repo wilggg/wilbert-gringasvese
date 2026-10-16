@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* Ir al carrito → página dedicada carrito.html */
   document.getElementById('btnPagar')?.addEventListener('click', () => {
-    window.location.href = 'carrito.html';
+    window.location.href = '/HTML/carrito.html';
   });
 
   /* Burger (menú mobile) */
